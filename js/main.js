@@ -8,11 +8,11 @@ function agregarProducto(nombreProducto, precioProducto) {
     }
     let producto = {
       nombre: nombreProducto,
-      precio: precioProducto
+      precio: precioProducto,
     };
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("Producto agregado al carrito"+producto);
+    alert("Producto agregado al carrito"+ nombreProducto + precioProducto);
   }
   
   // Función para calcular el total de la compra
