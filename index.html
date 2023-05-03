@@ -13,58 +13,47 @@
         <script src="https://kit.fontawesome.com/acaf011dda.js" crossorigin="anonymous"></script>
         <script src="./main.js"></script>
         <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"> 
-        <!--animate style-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
-    <body class="container-fluid">
-        <header class="sticky-top container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light" style=" background-image: linear-gradient(to right, #3e7ca3, #5085a8, #618fad, #7198b2, #81a2b7);">
-                <div class="container-fluid">
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="header_navegador" href="#"><img src="./Assets/img/alf_top_right_banner.png" height="70"></a>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active header_navlinks" id="hover" aria-current="page" href="#">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active header_navlinks" href="./Pages/galeria.html">Galería</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active header_navlinks" aria-current="page" href="./Pages/oferta.html">Tienda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active header_navlinks" aria-current="page" href="./Pages/tour.html">Tour</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active header_navlinks" aria-current="page" href="./Pages/contactanos.html">Contactanos</a>
-                    </li>
-                    </ul>
-                  </div>
-                </div>
+    <body>
+        <header>
+            <h1>Mi tienda online</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Carrito de compras</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
         </header>
         <main>
+            <section>
+                <h2>Productos populares</h2>
+                <ul>
+                    <li>
+                        <h3>Producto 1</h3>
+                        <img src="producto1.jpg" alt="Producto 1">
+                        <p>Descripción del producto 1</p>
+                        <button>Agregar al carrito</button>
+                    </li>
+                    <li>
+                        <h3>Producto 2</h3>
+                        <img src="producto2.jpg" alt="Producto 2">
+                        <p>Descripción del producto 2</p>
+                        <button>Agregar al carrito</button>
+                    </li>
+                    <li>
+                        <h3>Producto 3</h3>
+                        <img src="producto3.jpg" alt="Producto 3">
+                        <p>Descripción del producto 3</p>
+                        <button>Agregar al carrito</button>
+                    </li>
+                </ul>
+            </section>
         </main>
-        <footer class="sticky-bottom">
-            <br>
-            <div class="footerlinks">
-                <i class="fa-brands fa-instagram" href="https://www.instagram.com/alf_travelgram/?hl=en" target="_blank"></i>
-                <a class="footerlinks_linkDecorationi" href="https://www.instagram.com/alf_travelgram/?hl=en" target="_blank">Instagram</a>
-            </div>
-            <div class="footerlinks">
-                <i class="fa-brands fa-youtube"></i>
-                <a  class="footerlinks_linkDecorationy" href="https://www.youtube.com/watch?v=IXFFh4m4QGM" target="_blank">Youtube</a>
-            </div>
-            <div class="footerlinks">
-                <i class="fa-brands fa-facebook"></i>
-                <a class="footerlinks_linkDecorationf" href="https://www.facebook.com/AlfMovieOfficial/" target="_blank">Facebook</a>
-            </div>
-            <div class="bottom_text">
-                <br>
-                <p><strong>Todos los derechos reservados</strong></p>
-            </div>
+        <footer>
+            <script> 
+                solicitarNombre()
+            </script>
         </footer>
     </body>
-</html>
