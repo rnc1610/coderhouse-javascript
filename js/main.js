@@ -13,6 +13,7 @@ function agregarProducto(nombreProducto, precioProducto) {
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
     alert("Se ha agregado al carrito el producto"+" "+ nombreProducto +" por un valor de $"+ precioProducto);
+    console.log("Se ha agregado al carrito el producto"+" "+ nombreProducto +" por un valor de $"+ precioProducto);
   }
   
   // Función para calcular el total de la compra
