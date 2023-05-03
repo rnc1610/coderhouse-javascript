@@ -4,3 +4,86 @@ main, body{
 body {
   position: relative;
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+}
+nav li {
+  margin-right: 20px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+nav a:hover {
+  color: #f00;
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+}
+main li {
+  width: 30%;
+  margin-bottom: 40px;
+}
+main h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+main p {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f00;
+}
+main button {
+  margin-top: 10px;
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+main button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul {
+    flex-direction: column;
+  }
+  nav li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  main li {
+    width: 45%;
+  }
+}
+.imgprod{
+  width: 80%;
+  height: 50%;
+}
