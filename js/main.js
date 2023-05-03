@@ -12,7 +12,7 @@ function agregarProducto(nombreProducto, precioProducto) {
     };
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("Producto agregado al carrito"+ nombreProducto + precioProducto);
+    alert("Producto agregado al carrito" + carrito);
   }
   
   // Función para calcular el total de la compra
@@ -31,6 +31,7 @@ function agregarProducto(nombreProducto, precioProducto) {
   }
   
   // Ejemplo de uso de las funciones
-  agregarProducto("Producto 1", 10);
-  agregarProducto("Producto 2", 15);
+  agregarProducto("Cajonera", 100);
+  agregarProducto("Cama", 150);
+  alert("Su total es" + calcularTotal());
   console.log(calcularTotal());
