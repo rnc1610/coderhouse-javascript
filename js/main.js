@@ -1,5 +1,13 @@
 // Función para agregar un producto al carrito con prompt
   function agregarProducto() {
+    const productos = {
+      "Cajonera": 100,
+      "Cama": 150,
+      "Sofa": 200,
+      "Silla": 80,
+      "Mesa": 220,
+      "Carrito Auxiliar": 50,
+  };
     let carrito = localStorage.getItem("carrito");
     if (carrito === null) {
         carrito = [];
@@ -10,20 +18,23 @@
     let continuar = true;
 
     while (continuar) {
-        let nombreProducto = prompt("Ingrese el nombre del producto que desea agregar:");
-        let precioProducto = parseFloat(prompt("Ingrese el precio del producto:"));
-
+      let nombreProducto = prompt("Ingrese el nombre del producto:\n" + Object.keys(productos).join(", "));
+      let precioProducto = productos[nombreProducto];  
+      if (nombreProducto && precioProducto) {
         let producto = {
             nombre: nombreProducto,
             precio: precioProducto,
         };
         carrito.push(producto);
-
-        continuar = confirm("¿Desea agregar más productos al carrito?");
+    } else {
+        alert("Producto no válido");
     }
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    console.log(carrito);
+    continuar = confirm("¿Desea agregar más productos al carrito?");
+}
+
+localStorage.setItem("carrito", JSON.stringify(carrito));
+console.log(carrito);
 }
   
   // Función para calcular el total de la compra
@@ -44,7 +55,7 @@
   //Ejemplo de uso de las funciones
   agregarProducto();
   console.log(calcularTotal());
-  alert("Su total es " + calcularTotal());
+  alert("Su total es $" + calcularTotal());
 
 
   /*Funcion sin prompt 
