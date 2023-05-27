@@ -1,82 +1,88 @@
-<!DOCTYPE html> 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Sitio de ecommerce de muebles y todo lo necesario para renovar tu hogar.">
-        <meta name="keywords" content="ecommerce muebles, renueva tu casa, renovar hogar, bricolage, hobbies.">
-        <title>Todo para tu casa - pone al dia tu hogar</title>
-        <link href="./css/bootstrap.min.css" rel="stylesheet">
-        <link href="./css/estilos.css" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/acaf011dda.js" crossorigin="anonymous"></script>
-        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon"> 
-    </head>
-    <body>
-        <header>
-          <h1>Barcelona Muebles</h1>
-          <nav>
-            <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Productos</a></li>
-              <li><a href="#">Carrito</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </nav>
-        </header>
-        <main>
-          <h2>Productos</h2>
-        <div class="container-fluid pb-5">
-            <div class="row align-items-center">
-                <div class="col-sm text-center">
-                    <img class="imgprod" src="./assets/Fotos/producto1.avif" alt="Producto 1">
-                    <h3>Cajonera</h3>
-                    <p>$100</p>
-                    <button>Añadir al carrito</button>
-                </div>
-                <div class="col-sm text-center">
-                    <img class="imgprod" src="./assets/Fotos/producto2.avif" alt="Producto 2">
-                    <h3>Cama</h3>
-                    <p>$150</p>
-                    <button>Añadir al carrito</button>
-                </div>
-                <div class="col-sm text-center">
-                    <img class="imgprod" src="./assets/Fotos/producto3.avif" alt="Producto 3">
-                    <h3>Sofa</h3>
-                    <p>$200</p>
-                    <button>Añadir al carrito</button>
-                </div>
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitio de ecommerce de muebles y todo lo necesario para renovar tu hogar.">
+  <meta name="keywords" content="ecommerce muebles, renueva tu casa, renovar hogar, bricolage, hobbies.">
+  <title>Todo para tu casa - pone al día tu hogar</title>
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/estilos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/acaf011dda.js" crossorigin="anonymous"></script>
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <h1>Barcelona Muebles</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Productos</h2>
+    <div class="container-fluid pb-5">
+      <div class="row align-items-center">
+        <div class="col-sm text-center">
+          <img class="imgprod" src="./assets/Fotos/producto1.avif" alt="Producto 1">
+          <h3>Cajonera</h3>
+          <p>$100</p>
+          <button id="agregarProductoBtn1">Añadir al carrito</button>
         </div>
-        <div class="container-fluid pb-5">
-          <div class="row align-items-center">
-              <div class="col-sm text-center">
-                  <img class="imgprod" src="./assets/Fotos/producto4.avif" alt="Producto 1">
-                  <h3>Silla</h3>
-                  <p>$80</p>
-                  <button>Añadir al carrito</button>
-              </div>
-              <div class="col-sm text-center">
-                  <img class="imgprod" src="./assets/Fotos/producto5.avif" alt="Producto 2">
-                  <h3>Mesa</h3>
-                  <p>$220</p>
-                  <button>Añadir al carrito</button>
-              </div>
-              <div class="col-sm text-center">
-                  <img class="imgprod" src="./assets/Fotos/producto6.avif" alt="Producto 3">
-                  <h3>Carrito auxiliar</h3>
-                  <p>$50</p>
-                  <button>Añadir al carrito</button>
-              </div>
-          </div>
+        <div class="col-sm text-center">
+          <img class="imgprod" src="./assets/Fotos/producto2.avif" alt="Producto 2">
+          <h3>Cama</h3>
+          <p>$150</p>
+          <button id="agregarProductoBtn2">Añadir al carrito</button>
+        </div>
+        <div class="col-sm text-center">
+          <img class="imgprod" src="./assets/Fotos/producto3.avif" alt="Producto 3">
+          <h3>Sofá</h3>
+          <p>$200</p>
+          <button id="agregarProductoBtn3">Añadir al carrito</button>
+        </div>
       </div>
-        </main>
-        <footer>
-          <div class="col-sm text-center">
-            <p>2023 Todos los derechos reservados</p>
-          </div>
-        </footer>
-        <script src="./js/main.js"></script>
-      </body>
-    </html>
+    </div>
+    <div class="container-fluid pb-5">
+      <div class="row align-items-center">
+        <div class="col-sm text-center">
+          <img class="imgprod" src="./assets/Fotos/producto4.avif" alt="Producto 4">
+          <h3>Silla</h3>
+          <p>$80</p>
+          <button id="agregarProductoBtn4">Añadir al carrito</button>
+        </div>
+        <div class="col-sm text-center">
+          <img class="imgprod" src="./assets/Fotos/producto5.avif" alt="Producto 5">
+          <h3>Mesa</h3>
+          <p>$220</p>
+          <button id="agregarProductoBtn5">Añadir al carrito</button>
+        </div>
+        <div class="col-sm text-center">
+          <img class="imgprod" src="./assets/Fotos/producto6.avif" alt="Producto 6">
+          <h3>Carrito auxiliar</h3>
+          <p>$50</p>
+          <button id="agregarProductoBtn6">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div id="carritoContainer">
+      <h2>Carrito de compras</h2>
+      <ul id="carritoItems"></ul>
+      <div>
+        <button id="vaciarCarritoBtn">Vaciar carrito</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="col-sm text-center">
+      <p>2023 Todos los derechos reservados</p>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
+</body>
+</html>

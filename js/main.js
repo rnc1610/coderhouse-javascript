@@ -1,5 +1,4 @@
-//Función para agregar un producto al carrito con prompt
-function agregarProducto() {
+document.addEventListener("DOMContentLoaded", function() {
   const productos = {
     "cajonera": 100,
     "cama": 150,
@@ -9,88 +8,153 @@ function agregarProducto() {
     "carrito auxiliar": 50,
   };
 
-  let carrito = localStorage.getItem("carrito");
-  if (carrito === null) {
-    carrito = [];
-  } else {
-    carrito = JSON.parse(carrito);
-  }
+  function mostrarCarritoEnHTML(carrito) {
+    const carritoItems = document.getElementById("carritoItems");
+    carritoItems.innerHTML = ""; // Limpiar el contenido anterior
 
-  let continuar = true;
+    const subtotales = {}; // Objeto para almacenar los subtotales por tipo de producto
+    let totalCarrito = 0; // Variable para calcular el total en valor ($)
 
-  while (continuar) {
-    let opcion = prompt("Ingrese una opción:\n1. Agregar producto (ingrese el numero 1)\n2. Eliminar producto (ingrese el numero 2)\n3. Vaciar carrito (ingrese el numero 3)");
-    
-    if (opcion === "1") {
-      let nombreProducto = prompt("Ingrese el nombre del producto:\n" + Object.keys(productos).join(", "));
-      nombreProducto = nombreProducto.toLowerCase();
-      let precioProducto = productos[nombreProducto];
+    for (let i = 0; i < carrito.length; i++) {
+      const producto = carrito[i];
 
-      if (nombreProducto && precioProducto) {
-        let producto = {
-          nombre: nombreProducto,
-          precio: precioProducto,
-        };
-        carrito.push(producto);
-      } else {
-        alert("Producto no válido");
+      const li = document.createElement("li");
+      li.textContent = producto.nombre + " - Precio: $" + producto.precio + " - Cantidad: " + producto.cantidad;
+
+      const eliminarBtn = document.createElement("button");
+      eliminarBtn.textContent = "Eliminar";
+      eliminarBtn.classList.add("eliminarBtn");
+      eliminarBtn.addEventListener("click", function() {
+        eliminarProducto(producto.nombre);
+      });
+
+      const cantidadInput = document.createElement("input");
+      cantidadInput.type = "number";
+      cantidadInput.min = 1;
+      cantidadInput.value = producto.cantidad;
+      cantidadInput.addEventListener("change", function() {
+        cambiarCantidad(producto.nombre, parseInt(cantidadInput.value));
+      });
+
+      li.appendChild(eliminarBtn);
+      li.appendChild(cantidadInput);
+      carritoItems.appendChild(li);
+
+      // Calcular subtotales
+      if (!subtotales[producto.nombre]) {
+        subtotales[producto.nombre] = 0;
       }
-    } else if (opcion === "2") {
-      let nombreProducto = prompt("Ingrese el nombre del producto a eliminar del carrito:\n" + carrito.map(producto => producto.nombre).join(", "));
-      nombreProducto = nombreProducto.toLowerCase();
-      
-      let indiceProducto = carrito.findIndex(producto => producto.nombre === nombreProducto);
-      if (indiceProducto !== -1) {
-        carrito.splice(indiceProducto, 1);
-        alert("Producto eliminado del carrito: " + nombreProducto);
-      } else {
-        alert("El producto no se encontró en el carrito");
-      }
-    } else if (opcion === "3") {
-      carrito = [];
-      alert("El carrito ha sido vaciado");
-    } else {
-      alert("Opción inválida");
+      subtotales[producto.nombre] += producto.precio * producto.cantidad;
+
+      // Calcular totalCarrito
+      totalCarrito += producto.precio * producto.cantidad;
     }
 
-    continuar = confirm("¿Desea realizar más operaciones en el carrito?");
+    // Mostrar subtotales
+    const subtotalContainer = document.getElementById("subtotalContainer");
+    subtotalContainer.innerHTML = ""; // Limpiar el contenido anterior
+
+    for (const nombreProducto in subtotales) {
+      const subtotalLi = document.createElement("li");
+      subtotalLi.textContent = nombreProducto + " - Subtotal: $" + subtotales[nombreProducto];
+      subtotalContainer.appendChild(subtotalLi);
+    }
+
+    // Mostrar totalCarrito
+    const totalCarritoElement = document.getElementById("totalCarrito");
+    totalCarritoElement.textContent = "Total del carrito: $" + totalCarrito;
   }
 
-  localStorage.setItem("carrito", JSON.stringify(carrito));
-
-  let mensajeCarrito = "Productos en el carrito:\n";
-  let totalCarrito = 0;
-
-  for (let i = 0; i < carrito.length; i++) {
-    let producto = carrito[i];
-    mensajeCarrito += "- " + producto.nombre + " - Precio: $" + producto.precio + "\n";
-    totalCarrito += producto.precio;
+  function vaciarCarrito() {
+    localStorage.removeItem("carrito");
+    mostrarCarritoEnHTML([]);
   }
 
-  mensajeCarrito += "Total del carrito: $" + totalCarrito;
-  alert(mensajeCarrito);
+  function agregarProductoAlCarrito(nombreProducto) {
+    let carrito = localStorage.getItem("carrito");
+    if (carrito === null) {
+      carrito = [];
+    } else {
+      carrito = JSON.parse(carrito);
+    }
 
-  console.log(carrito);
-}
-//Ejemplo de uso de las funciones
-agregarProducto();
-console.log(calcularTotal());
-alert("Su total es $" + calcularTotal());
+    const precioProducto = productos[nombreProducto];
 
+    if (nombreProducto && precioProducto) {
+      const productoExistente = carrito.find(producto => producto.nombre === nombreProducto);
 
+      if (productoExistente) {
+        productoExistente.cantidad++;
+      } else {
+        const nuevoProducto = {
+          nombre: nombreProducto,
+          precio: precioProducto,
+          cantidad: 1,
+        };
+        carrito.push(nuevoProducto);
+      }
 
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarritoEnHTML(carrito);
+    } else {
+      alert("Producto no válido");
+    }
+  }
 
+  function eliminarProducto(nombreProducto) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+    const indiceProducto = carrito.findIndex(producto => producto.nombre === nombreProducto);
 
+    if (indiceProducto !== -1) {
+      carrito.splice(indiceProducto, 1);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarritoEnHTML(carrito);
+    } else {
+      alert("El producto no se encontró en el carrito");
+    }
+  }
 
+  function cambiarCantidad(nombreProducto, cantidad) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+    const productoExistente = carrito.find(producto => producto.nombre === nombreProducto);
 
+    if (productoExistente) {
+      productoExistente.cantidad = cantidad;
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarritoEnHTML(carrito);
+    }
+  }
 
-/*Clase Arrays
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  mostrarCarritoEnHTML(carrito);
 
-const palabras = ["hola","precio","cantidad","color"];
-console.log(palabras);
-const autos = [{nombre: "mazda",motor: "1.6",},{nombre: "ford",motor: "2.0",}];
-console.log(autos);
-console.log(autos[0]); //para ver el obejto en la posicion 0 por consola
-*/
+  // Agregar producto al carrito al hacer clic en el botón correspondiente
+  document.getElementById("agregarProductoBtn1").addEventListener("click", function() {
+    agregarProductoAlCarrito("cajonera");
+  });
+
+  document.getElementById("agregarProductoBtn2").addEventListener("click", function() {
+    agregarProductoAlCarrito("cama");
+  });
+
+  document.getElementById("agregarProductoBtn3").addEventListener("click", function() {
+    agregarProductoAlCarrito("sofa");
+  });
+
+  document.getElementById("agregarProductoBtn4").addEventListener("click", function() {
+    agregarProductoAlCarrito("silla");
+  });
+
+  document.getElementById("agregarProductoBtn5").addEventListener("click", function() {
+    agregarProductoAlCarrito("mesa");
+  });
+
+  document.getElementById("agregarProductoBtn6").addEventListener("click", function() {
+    agregarProductoAlCarrito("carrito auxiliar");
+  });
+
+  // Vaciar carrito al hacer clic en el botón correspondiente
+  document.getElementById("vaciarCarritoBtn").addEventListener("click", vaciarCarrito);
+});
