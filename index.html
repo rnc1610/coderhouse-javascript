@@ -32,19 +32,19 @@
           <img class="imgprod" src="./assets/Fotos/producto1.avif" alt="Producto 1">
           <h3>Cajonera</h3>
           <p>$100</p>
-          <button id="agregarProductoBtn1">Añadir al carrito</button>
+          <button class="agregarProductoBtn" data-producto="producto1">Añadir al carrito</button>
         </div>
         <div class="col-sm text-center">
           <img class="imgprod" src="./assets/Fotos/producto2.avif" alt="Producto 2">
           <h3>Cama</h3>
           <p>$150</p>
-          <button id="agregarProductoBtn2">Añadir al carrito</button>
+          <button class="agregarProductoBtn" data-producto="producto2">Añadir al carrito</button>
         </div>
         <div class="col-sm text-center">
           <img class="imgprod" src="./assets/Fotos/producto3.avif" alt="Producto 3">
           <h3>Sofá</h3>
           <p>$200</p>
-          <button id="agregarProductoBtn3">Añadir al carrito</button>
+          <button class="agregarProductoBtn" data-producto="producto3">Añadir al carrito</button>
         </div>
       </div>
     </div>
@@ -54,28 +54,42 @@
           <img class="imgprod" src="./assets/Fotos/producto4.avif" alt="Producto 4">
           <h3>Silla</h3>
           <p>$80</p>
-          <button id="agregarProductoBtn4">Añadir al carrito</button>
+          <button class="agregarProductoBtn" data-producto="producto4">Añadir al carrito</button>
         </div>
         <div class="col-sm text-center">
           <img class="imgprod" src="./assets/Fotos/producto5.avif" alt="Producto 5">
           <h3>Mesa</h3>
           <p>$220</p>
-          <button id="agregarProductoBtn5">Añadir al carrito</button>
+          <button class="agregarProductoBtn" data-producto="producto5">Añadir al carrito</button>
         </div>
         <div class="col-sm text-center">
           <img class="imgprod" src="./assets/Fotos/producto6.avif" alt="Producto 6">
           <h3>Carrito auxiliar</h3>
           <p>$50</p>
-          <button id="agregarProductoBtn6">Añadir al carrito</button>
+          <button class="agregarProductoBtn" data-producto="producto6">Añadir al carrito</button>
         </div>
       </div>
     </div>
     <div id="carritoContainer">
-      <h2>Carrito de compras</h2>
-      <ul id="carritoItems"></ul>
-      <div>
-        <button id="vaciarCarritoBtn">Vaciar carrito</button>
-      </div>
+  <h2>Carrito de compras</h2>
+  <table id="carritoItems" class="carrito-items">
+    <thead>
+      <tr>
+        <th>Imagen</th>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div id="totalContainer" class="carrito-total"></div>
+  <div>
+    <button id="vaciarCarritoBtn" class="vaciar-carrito-btn">Vaciar carrito</button>
+  </div>
+</div>
     </div>
   </main>
   <footer>
