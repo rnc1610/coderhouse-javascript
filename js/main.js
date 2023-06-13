@@ -179,7 +179,7 @@ function obtenerDatosClima(ciudad) {
 }
 obtenerDatosClima('Barcelona,es')
 
-//Libreria JSAlert de https://www.npmjs.com/package/js-alert?activeTab=code para mostrar alerta de bienvenida
+//Libreria JSAlert de https://www.npmjs.com/package/js-alert?activeTab=code para mostrar alerta de b
 function mostrarAlerta() {
   JSAlert.alert("Bienvenido a tienda de muebles Barcelona");
 }
