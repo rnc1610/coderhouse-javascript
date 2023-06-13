@@ -155,3 +155,27 @@ document.addEventListener('DOMContentLoaded', function() {
     return `$${total}`;
   }
 });
+
+//API de OpenWeather para obtener los datos del clima
+
+function obtenerDatosClima(ciudad) {
+  const apiKey = '8ffd6dfb7ada1e94a1f86767f2ed060b'; 
+
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&APPID=${apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+      const datosClimaElemento = document.getElementById('datos-clima');
+      const humedad = data.main.humidity;
+      const viento = data.wind.speed;
+      const ciudad = data.name;
+      datosClimaElemento.innerHTML = `<ul>Ubicación: ${ciudad}</ul>
+                                      <ul>Temperatura actual: ${data.main.temp}°C</ul>
+                                      <ul>Humedad: ${humedad}%</ul>
+                                      <ul>Viento: ${viento} m/s</ul>`;
+  })
+    .catch(error => {
+      console.log('Error al obtener los datos del clima:', error);
+    });
+}
+//API de OpenWeather para obtener los datos del clima
+obtenerDatosClima('Barcelona,es')
