@@ -177,12 +177,10 @@ function obtenerDatosClima(ciudad) {
       console.log('Error al obtener los datos del clima:', error);
     });
 }
-//API de OpenWeather para obtener los datos del clima
 obtenerDatosClima('Barcelona,es')
 
+//Libreria JSAlert de https://www.npmjs.com/package/js-alert?activeTab=code para mostrar alerta de bienvenida
 function mostrarAlerta() {
   JSAlert.alert("Bienvenido a tienda de muebles Barcelona");
 }
-
-// Llamar a la función para mostrar la alerta
 mostrarAlerta();
